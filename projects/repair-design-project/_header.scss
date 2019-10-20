@@ -1,0 +1,90 @@
+$bgcolor: #131313;
+$btncolor: #e3b873;
+$fontcolor: #fff;
+$font: FuturaBookC, sans-serif;
+$fontsize: 0.875em;
+$maxwidth: 1440px;
+$margin: 0 auto;
+$tablet: 900px;
+$mobile: 375px;
+
+@mixin flex($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+main {
+  max-width: $maxwidth;
+  margin: $margin;
+  background-color: $bgcolor;
+}
+
+.header {
+  background-color: $bgcolor;
+  @include flex(space-around);
+  width: 100%;
+  height: 10.5vh;
+  nav {
+    width: 40.34%;
+  }
+  .logo {
+    font-family: $font;
+    font-size: $fontsize;
+    padding-left: 3.5%;
+    a {
+      color: $btncolor;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+  @media screen and (max-width: $tablet) and (min-width: $mobile) {
+    .top-menu {
+      display: none;
+    }
+
+    .button {
+      display: none;
+    }
+    .logo {
+      padding: 0;
+      width: 80%;
+      a {
+        font-size: 0.75em;
+      }
+    }
+    .number {
+      font-size: 0.75em;
+      width: 50%;
+    }
+  }
+}
+
+.top-menu {
+  @include flex(space-between);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+    font-family: $font;
+    font-size: $fontsize;
+    a {
+      color: $fontcolor;
+      text-decoration: none;
+      text-transform: uppercase;
+      &:hover {
+        color: $btncolor;
+      }
+    }
+  }
+}
+.number {
+  font-family: $font;
+  font-size: $fontsize;
+  color: $fontcolor;
+  &:hover {
+    color: $btncolor;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
